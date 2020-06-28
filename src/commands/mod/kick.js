@@ -1,20 +1,9 @@
-module.exports = {
-    run: async(client, message, args) => {
-        if(!message.member.hasPermission('KICK_MEMBERS'))
-                message.channel.send("You don't have permission to use that command.");
-        else {
-            let member = message.guild.members.cache.get(args);
-            if(member) {
-                try {
-                    await member.kick();
-                    console.log('A member was kicked.');
-                }
-                catch(err) {
-                    console.log(err);
-                }
-            }
-        }
-    },
-    aliases: [],
-    description: 'Kicks a user'
+if (msg.member.hasPermission("KICK_MEMBERS") {
+    if (msg.members.mentions.first()) {
+        try {
+            msg.members.mentions.first().kick();
+        } catch {
+            msg.reply("I do not have permissions to kick " + msg.members.mentions.first());
+    }else {
+        msg.reply("You do not have permissions to kick " + msg.members.mentions.first());
 }
